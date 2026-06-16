@@ -2195,7 +2195,7 @@ input, select, textarea {
     align-items: center;
     text-align: center;
     margin: 0;
-}
+	}
 
 		#startBanner header {
 			background-color: #fff;
@@ -2261,7 +2261,7 @@ input, select, textarea {
 	}
 
 		#intro section {
-			margin: 3em 0;
+			margin: 3em 0 ;
 			padding: 2.5em 0;
 		}
 
@@ -3020,4 +3020,5 @@ input, select, textarea {
 			}
 
 
-	};
+	}
+}
