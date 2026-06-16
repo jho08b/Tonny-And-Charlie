@@ -1,0 +1,452 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>SAVE 282 | 성격유형 검사</title>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+    <style>
+
+        .quiz-box{
+            max-width:900px;
+            margin:0 auto;
+            text-align:center;
+        }
+
+        .question-image{
+            width:100%;
+            max-width:400px;
+            border-radius:10px;
+            margin-bottom:20px;
+        }
+
+        .answer-btn{
+            display:block;
+            width:100%;
+            margin:15px 0;
+        }
+
+        .progress-wrap{
+            width:100%;
+            height:20px;
+            background:#ddd;
+            border-radius:20px;
+            overflow:hidden;
+            margin-bottom:20px;
+        }
+
+        .progress-bar{
+            height:100%;
+            width:0%;
+            background:#2d6a4f;
+        }
+
+        .bottom-buttons{
+            margin-top:20px;
+        }
+
+        .bottom-buttons .button{
+            margin:5px;
+        }
+
+    </style>
+
+</head>
+
+<body class="no-sidebar is-preload">
+
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <section id="header">
+
+            <nav id="nav">
+                <ul>
+
+                    <li>
+                        <a href="index.html"> SAVE 282 </a>
+                    </li>
+
+                    <li class="current">
+                        <a href="personality.html"> 멸종위기종 성격 유형 </a>
+                        <ul>
+                            <li>
+                                <a href="quiz.html"> 내 성격유형 검사하기 </a>
+                            </li>
+
+                            <li>
+                                <a href="compatibility.html"> 동물 궁합표 </a>
+                            </li>
+
+                            <li>
+                                <a href="type-list.html"> 전체 유형 보기 </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><a href="animals.html">멸종위기종</a></li>
+                    <li><a href="donate.html">후원하기</a></li>
+                    <li><a href="login.html">Log In</a></li>
+
+                </ul>
+            </nav>
+
+        </section>
+
+        <!-- Main -->
+        <section id="main">
+
+            <div class="container">
+
+                <article class="box post">
+
+                    <div class="quiz-box">
+
+                        <h2>멸종위기종 성격유형 검사</h2>
+
+                        <p>총 20문항으로 구성되어 있습니다.</p>
+
+                        <p id="questionNumber"> 1 / 20</p>
+
+                        <div class="progress-wrap">
+                            <div id="progressBar" class="progress-bar"> </div>
+                        </div>
+
+                        <img id="questionImage" src="images/quiz/q1.png" class="question-image" alt="">
+
+                        <h3 id="questionText"> 질문 </h3>
+
+                        <button id="answerA" class="button answer-btn"> A </button>
+
+                        <button id="answerB" class="button alt answer-btn"> B </button>
+
+                        <div class="bottom-buttons">
+
+                            <button class="button" onclick="goPrev()"> 이전 </button>
+
+                            <button class="button alt" onclick="restartQuiz()"> 처음으로 </button>
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <script>
+
+        const questions = [
+
+            {
+                text: "Q1. 현장 조사를 시작하기 전, 당신은 먼저 무엇을 하나요?",
+                A: "팀원들과 역할을 나누고 의견을 주고받는다",
+                B: "조사 자료를 조용히 읽으며 혼자 계획을 정리한다",
+                typeA: "E",
+                typeB: "I",
+                img: "assets/images/quiz/q1.png"
+            },
+
+            {
+                text: "Q2. 멸종위기 생물 보호 캠페인을 준비하게 되었습니다. 당신의 역할은?",
+                A: "사람들에게 직접 설명하고 참여를 이끌어내는 홍보 역할",
+                B: "혼자서 자료집이나 카드뉴스를 만드는 등 기획 역할",
+                typeA: "E",
+                typeB: "I",
+                img: "assets/images/quiz/q2.png"
+            },
+            
+            {
+                text: "Q3. 조사 중 희귀한 생물을 발견했습니다.",
+                A: "바로 팀원들에게 알리고 함께 관찰한다",
+                B: "먼저 조용히 기록하고 방해되지 않게 살핀다",
+                typeA: "E",
+                typeB: "I",
+                img: "assets/images/quiz/q3.png"
+            },
+
+            {
+                text: "Q4. 연구 결과를 발표해야 합니다. 당신은 지금?",
+                A: "사람들 앞에서 연구 결과를 생생하게 설명하는 발표가 기대된다",
+                B: "많은 사람들 앞에서 발표하는 것은 부담스럽다",
+                typeA: "E",
+                typeB: "I",
+                img: "assets/images/quiz/q4.png"
+            },
+      
+            {
+                text: "Q5. 보호 활동에 참여할 기회가 생겼습니다.",
+                 A: "여러 사람과 함께하는 봉사나 캠페인에 참여한다",
+                B: "혼자 꾸준히 실천할 수 있는 보호 활동을 선택한다",
+                typeA: "E",
+                typeB: "I",
+                img: "assets/images/quiz/q5.png"
+            },
+      
+            {
+                text: "Q6. 멸종위기 생물 자료를 처음 받았습니다. 당신이 먼저 보는 것은?",
+                A: "이 생물이 사라지면 미래의 생태계가 어떻게 변할지 생각한다",
+                B: "서식지, 개체 수, 먹이, 크기 같은 현재에서 파악할 수 있는 구체적 정보를 확인한다",
+                typeA: "N",
+                typeB: "S",
+                img: "assets/images/quiz/q6.png"
+            },
+      
+            {
+                text: "Q7. 서식지가 훼손된 지역을 조사하게 되었습니다.",
+                A: "앞으로 이 지역이 어떻게 회복될 수 있을지 상상한다",
+                B: "현재 훼손 정도와 남아 있는 생물 수를 정확히 기록한다",
+                typeA: "N",
+                typeB: "S",
+                img: "assets/images/quiz/q7.png"
+            },
+            
+            {
+                text: "Q8. 새로운 보호 방안을 제안해야 합니다.",
+                A: "기존에 없던 새로운 아이디어를 떠올린다",
+                B: "이미 효과가 검증된 방법을 참고한다",
+                typeA: "N",
+                typeB: "S",
+                img: "assets/images/quiz/q8.png"
+            },
+
+            {
+                text: "Q9. 생물의 행동을 관찰할 때 당신은?",
+                A: "행동의 의미와 생태계 안에서의 역할을 생각한다",
+                B: "움직임, 시간, 위치, 먹이 활동을 자세히 기록한다",
+                typeA: "N",
+                typeB: "S",
+                img: "assets/images/quiz/q9.png"
+            },
+      
+            {
+                text: "Q10. 연구 보고서를 작성할 때 더 중요하다고 느끼는 것은?",
+                A: "조사 결과가 앞으로 어떤 의미를 가질지 설명하는 것",
+                B: "조사한 사실과 수치를 정확하게 정리하는 것",
+                typeA: "N",
+                typeB: "S",
+                img: "assets/images/quiz/q10.png"
+            },
+      
+            {
+                text: "Q11. 여러 멸종위기 생물 중 보호 우선순위를 정해야 합니다. 어떤 생각이 먼저 떠오릅니까?",
+                A: "가장 위태롭고 안타깝게 느껴지는 생물을 먼저 돕고 싶다",
+                B: "위기 등급, 개체 수, 보전 가능성을 기준으로 판단한다",
+                typeA: "F",
+                typeB: "T",
+                img: "assets/images/quiz/q11.png"
+            },
+      
+            {
+                text: "Q12. 주민들이 서식지 보호 때문에 불편을 겪고 있습니다.",
+                A: "주민들의 감정과 생물 보호가 함께 고려되어야 한다고 생각한다",
+                B: "생태계 보전을 위한 객관적 근거를 먼저 따져야 한다고 생각한다",
+                typeA: "F",
+                typeB: "T",
+                img: "assets/images/quiz/q12.png"
+            },
+      
+            {
+                text: "Q13. 다친 야생동물을 발견했습니다.",
+                A: "불쌍한 마음이 먼저 들고 빨리 구조하고 싶다",
+                B: "상태와 주변 환경을 확인하고 절차에 따라 신고한다",
+                typeA: "F",
+                typeB: "T",
+                img: "assets/images/quiz/q13.png"
+            },
+     
+            {
+                text: "Q14. 보호 정책을 설명할 때 당신은?",
+                A: "사람들이 멸종위기 야생생물에게 공감할 수 있는 이야기를 중심으로 설명한다",
+                B: "현재 멸종위기 야생생물 자료, 수치, 원인 분석을 중심으로 설명한다",
+                typeA: "F",
+                typeB: "T",
+                img: "assets/images/quiz/q14.png"
+            },
+     
+            {
+                text: "Q15. 두 보호 방법 중 하나를 선택해야 합니다.",
+                A: "생물과 사람 모두에게 상처가 적은 방법을 고른다",
+                B: "가장 효과적이고 근거가 분명한 방법을 고른다",
+                typeA: "F",
+                typeB: "T",
+                img: "assets/images/quiz/q15.png"
+            },
+      
+            {
+                text: "Q16. 현장 조사 일정이 잡혔습니다.",
+                A: "시간표와 준비물을 미리 정리해 계획대로 움직인다",
+                B: "현장 상황에 맞게 유연하게 움직이는 편이 좋다",
+                typeA: "J",
+                typeB: "P",
+                img: "assets/images/quiz/q16.png"
+            },
+      
+            {
+                text: "Q17. 조사 중 예상하지 못한 생물 흔적을 발견했습니다.",
+                A: "원래 계획을 크게 벗어나지 않는 선에서 기록한다",
+                B: "흥미로운 단서라면 계획을 바꿔 더 조사해본다",
+                typeA: "J",
+                typeB: "P",
+                img: "assets/images/quiz/q17.png"
+            },
+      
+            {
+                text: "Q18. 보호 활동 프로젝트를 맡게 되었습니다.",
+                A: "목표, 일정, 역할을 먼저 확실히 정한다",
+                B: "진행하면서 필요한 내용을 그때그때 조정한다",
+                typeA: "J",
+                typeB: "P",
+                img: "assets/images/quiz/q18.png"
+            },
+      
+            {
+                text: "Q19. 멸종위기 야생생물 연구 노트를 작성하는 방식은?",
+                A: "날짜, 장소, 관찰 내용을 정해진 형식에 맞춰 정리한다",
+                B: "떠오르는 생각과 관찰 내용을 자유롭게 적는다",
+                typeA: "J",
+                typeB: "P",
+                img: "assets/images/quiz/q19.png"
+            },
+           
+            {
+             text: "Q20. 마지막 보고서를 제출해야 합니다.",
+                A: "제출기한 일주일 전에 완성해두고 여러 번 검토한다",
+                B: "마감 전까지 더 좋은 내용이 있으면 계속 추가하고 마감 직전에 제출한다",
+                typeA: "J",
+                typeB: "P",
+                img: "assets/images/quiz/q20.png"
+            }
+        ];
+
+        let currentQuestion = 0;
+
+        let score = {
+
+            E:0,
+            I:0,
+
+            N:0,
+            S:0,
+
+            F:0,
+            T:0,
+
+            J:0,
+            P:0
+        };
+
+        let selectedAnswers = [];
+
+        showQuestion();
+
+        function showQuestion(){
+
+        const q = questions[currentQuestion];
+
+            document.getElementById( "questionText" ).innerText = q.text;
+
+            document.getElementById( "answerA" ).innerText = "A. " + q.A;
+
+            document.getElementById( "answerB" ).innerText = "B. " + q.B;
+
+            document.getElementById( "questionImage" ).src = q.img;
+
+            document.getElementById( "questionNumber" ).innerText = (currentQuestion + 1) + " / " + questions.length;
+
+            let percent = ((currentQuestion + 1) / questions.length) * 100;
+
+            document.getElementById( "progressBar" ).style.width = percent + "%";
+        }
+
+        function selectAnswer(choice){
+
+            const q = questions[currentQuestion];
+
+            selectedAnswers[currentQuestion] = choice;
+
+            if(choice === "A"){
+                score[q.typeA]++;
+            } else{
+                score[q.typeB]++;
+            }
+
+            currentQuestion++;
+
+            if( currentQuestion < questions.length ){
+                showQuestion();
+            }
+            else{
+                showResult();
+            }
+        }
+
+        document.getElementById("answerA").addEventListener("click", () => selectAnswer("A"));
+
+        document.getElementById("answerB").addEventListener("click", () => selectAnswer("B"));
+
+        function goPrev(){
+
+            if(currentQuestion <= 0){
+                return;
+            }
+
+            currentQuestion--;
+
+            showQuestion();
+        }
+
+        function showResult(){
+
+            let finalType = "";
+
+            finalType += score.E >= score.I ? "E" : "I";
+
+            finalType += score.N >= score.S ? "N" : "S";
+
+            finalType += score.F >= score.T ? "F" : "T";
+
+            finalType += score.J >= score.P ? "J" : "P";
+
+            localStorage.setItem( "animalType", finalType );
+
+            location.href = "result.html?type=" + finalType;
+        }
+
+        function restartQuiz(){
+
+            if(!confirm("처음부터 다시 시작할까요?")){
+                return;
+            }
+
+            currentQuestion = 0;
+
+            score = {
+                E:0,I:0,
+                N:0,S:0,
+                F:0,T:0,
+                J:0,P:0
+            };
+
+            selectedAnswers = [];
+
+            showQuestion();
+        }
+
+    </script>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>

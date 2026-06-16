@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>SAVE 282 | 동물 상세정보</title>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body class="no-sidebar is-preload">
+
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <section id="header">
+
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html">SAVE 282</a></li>
+
+                <li class="current">
+                    <a href="personality.html">멸종위기종 성격 유형</a>
+                    <ul>
+                        <li><a href="quiz.html">내 성격유형 검사하러가기</a></li>
+                        <li><a href="compatibility.html">동물 궁합표 보러가기</a></li>
+                        <li><a href="type-list.html">전체 성격유형 보러가기</a></li>
+                    </ul>
+                </li>
+                <li><a href="animals.html">멸종위기종</a></li>
+                <li><a href="donate.html">후원하기</a></li>
+                <li><a href="login.html">Log In</a></li>
+            </ul>
+        </nav>
+
+    </section>
+
+    <!-- Main -->
+    <section id="main">
+        <div class="container">
+
+            <article class="box post">
+
+                <header style="text-align:center;">
+                    <h2> <span id="animalName"></span> - <span id="mbti"></span></h2>
+                </header>
+
+                <section style="text-align:center;">
+                    <img id="mbtiImage" src="" alt="" width="400">
+                </section>
+
+                <h3>성격 유형 소개</h3>
+                <p id="personality"></p>
+                <h3>주요 특징</h3>
+                <p id="feature" style="white-space:pre-line;"></p>
+                <h3>왜 수달일까?</h3>
+                <p id="why"></p>
+                <h3> ENFP와 수달의 공통점</h3>
+                <p id="same" style="white-space:pre-line;"></p>
+                <h3>한 줄 정리</h3>
+                <p id="summery"></p>
+                <h3>보호 메세지</h3>
+                <p id="protect"></p>
+
+                <footer style="text-align:center;">
+
+                    <a href="type-list.html" class="button">
+                        다른 동물 보기
+                    </a>
+
+                    <a href="animal-detail.html?animal=otter" class="button alt">
+                        자세히 알아보기
+                    </a>
+
+                </footer>
+
+            </article>
+
+        </div>
+    </section>
+
+</div>
+
+<script>
+
+const animalInfo = {
+
+    otter: {
+
+        name:"수달",
+
+        mbti:"ENFP",
+
+        mbtiImage: "images/mbti_img/ENFP_수달.png",
+
+        personality:
+        "ENFP는 밝고 에너지가 넘치며 새로운 경험을 즐기는 성격 유형입니다. 사람들과 어울리는 것을 좋아하고, 다양한 가능성을 발견하는 데 흥미를 느낍니다. 자유로운 분위기 속에서 자신의 아이디어를 펼칠 때 가장 큰 매력을 발휘합니다.",
+
+        feature: [
+        "• 호기심이 많고 탐구심이 강하다.",
+        "• 새로운 도전과 경험을 즐긴다.",
+        "• 사람들과 쉽게 친해지고 사교성이 좋다.",
+        "• 창의적인 아이디어를 떠올리는 것을 좋아한다.",
+        "• 자유로운 환경을 선호한다.",
+        "• 반복적이고 지루한 일은 어려워한다.",
+        ],
+
+        why:
+        "수달은 강과 물속을 자유롭게 오가며 생활하는 동물입니다. 특히 놀이 행동이 활발하고 주변 환경을 끊임없이 탐색하는 높은 호기심을 가지고 있습니다. 또한 넓은 영역을 이동하며 새로운 환경에 적응하는 능력이 뛰어납니다. 이러한 모습은 자유롭고 개방적이며 새로운 경험을 즐기는 ENFP의 성향과 매우 닮아 있습니다. 항상 새로운 가능성을 찾아 움직이는 ENFP처럼 수달 역시 활발하게 세상을 탐험하는 동물입니다.",
+
+        same: [
+        "• 호기심이 많다 → 수달은 주변 환경을 끊임없이 탐색한다.",
+        "• 에너지가 넘친다 → 수달은 하루 대부분을 활동적으로 보낸다.",
+        "• 새로운 경험을 좋아한다 → 넓은 영역을 이동하며 다양한 환경을 경험한다.",
+        "• 사교적인 성향이 있다 → 가족 단위 생활을 하며 서로 협력한다.",
+        "• 자유를 중요하게 생각한다 → 물과 육지를 자유롭게 오가며 생활한다.",
+        ],
+
+        summery:
+        "ENFP 수달형은 자유로운 영혼과 끝없는 호기심으로 세상을 탐험하는 모험가입니다.",
+
+        protect:
+        "수달은 깨끗한 하천에서만 살아갈 수 있는 멸종위기종입니다. 수달이 살아가는 강은 건강한 생태계를 의미합니다. 우리 모두의 관심과 보호가 수달과 자연을 지키는 첫걸음이 될 수 있습니다."
+
+    },
+
+};
+
+const params =
+new URLSearchParams(window.location.search);
+
+const animal =
+params.get("animal");
+
+if(animalInfo[animal]){
+
+    document.getElementById("animalName").innerText = animalInfo[animal].name;
+    
+    document.getElementById("mbti").innerText = animalInfo[animal].mbti;
+
+    document.getElementById("mbtiImage").src = animalInfo[animal].mbtiImage;
+
+    document.getElementById("personality").innerText = animalInfo[animal].personality;
+
+    document.getElementById("feature").innerHTML = animalInfo[animal].feature.map(item => `• ${item}`).join("<br>");
+
+    document.getElementById("why").innerText = animalInfo[animal].why;
+
+    document.getElementById("same").innerHTML = animalInfo[animal].same.map(item => `• ${item}`).join("<br>");
+
+    document.getElementById("summery").innerText = animalInfo[animal].summery;
+
+    document.getElementById("protect").innerText = animalInfo[animal].protect;
+}
+
+</script>
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.dropotron.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>

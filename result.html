@@ -1,0 +1,281 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>SAVE 282 | 검사 결과</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body class="no-sidebar is-preload">
+
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <section id="header">
+
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html">SAVE 282</a></li>
+
+                    <li class="current">
+                        <a href="personality.html">멸종위기종 성격 유형</a>
+                        <ul>
+                            <li><a href="quiz.html">내 성격유형 검사하러가기</a></li>
+                            <li><a href="compatibility.html">동물 궁합표 보러가기</a></li>
+                            <li><a href="type-list.html">전체 성격유형 보러가기</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="animals.html">멸종위기종</a></li>
+                    <li><a href="donate.html">후원하기</a></li>
+                    <li><a href="login.html">로그인</a></li>
+                </ul>
+            </nav>
+
+        </section>
+
+        <!-- Main -->
+        <section id="main">
+            <div class="container">
+
+                <article class="box post">
+
+                    <header style="text-align:center;">
+                        <h2>당신의 멸종위기종 유형</h2>
+                    </header>
+
+                    <div style="text-align:center;">
+
+                        <img
+                            id="animalImage"
+                            src="images/default.jpg"
+                            alt=""
+                            style="max-width:350px; width:100%; border-radius:15px;"
+                        >
+
+                        <h2 id="animalName" style="margin-top:25px;">
+                            결과 분석중...
+                        </h2>
+
+                        <h3 id="mbtiType"></h3>
+
+                    </div>
+
+                    <hr>
+
+                    <section>
+
+                        <h3>성격 분석</h3>
+
+                        <p id="animalDescription">
+                            결과를 불러오는 중입니다.
+                        </p>
+
+                    </section>
+
+                    <section>
+
+                        <h3>보호가 필요한 이유</h3>
+
+                        <p id="animalReason">
+                            결과를 불러오는 중입니다.
+                        </p>
+
+                    </section>
+
+                    <section>
+    
+                        <h3>동물 궁합</h3>
+
+                        <p id="bestMatch"></p>
+    
+                        <p id="goodMatch"></p>
+    
+                        <p id="badMatch"></p>
+
+                    </section>
+
+                    <footer style="text-align:center; margin-top:40px;">
+
+                        <a id="detailBtn"  href="#" class="button">
+                            동물 상세정보 보기
+                        </a>
+
+                        <a href="quiz.html" class="button alt">
+                            다시 검사하기
+                        </a>
+
+                        <a href="type-list.html" class="button">
+                            전체 유형 보기
+                        </a>
+
+                    </footer>
+
+                </article>
+
+            </div>
+        </section>
+
+    </div>
+
+        <script>
+
+            const animalData = {
+
+                ENFP: {
+                    animal: "수달",
+                    image: "images/mbti_img/ENFP_수달.png",
+                    description:
+                    "수달은 강가와 물속을 자유롭게 오가며 다양한 놀이 행동을 즐기는 동물입니다. 호기심이 많고 에너지가 넘치며 새로운 환경을 탐험하는 모습이 자유롭고 창의적인 ENFP와 닮아 있습니다.",
+                    reason:
+                    "수달은 하천 개발과 수질 오염으로 인해 서식지가 감소하고 있습니다. 건강한 하천 생태계를 유지하기 위해 지속적인 보호가 필요합니다.",
+                    detail:"otter",
+                    best:"스라소니",
+    
+                    bestMbti:"INTJ",
+
+    
+                    good:"반달가슴곰",
+    
+                    goodMbti:"ENTJ",
+
+    
+                    bad:"담비",
+                    badMbti:"ESTP"
+                },
+
+                ENFJ: {
+                    animal: "늑대",
+                    image: "images/mbti_img/ENFJ_늑대.png",
+                    description:
+                    "늑대는 무리를 이루어 함께 사냥하고 새끼를 돌보는 대표적인 사회성 동물입니다. 집단을 이끌고 구성원들을 챙기는 모습이 사람 중심적이고 리더십이 강한 ENFJ와 잘 어울립니다.",
+                    reason:
+                    "늑대는 서식지 감소와 인간과의 갈등으로 개체 수가 줄어들고 있습니다. 생태계 균형을 유지하기 위해 보호가 필요합니다.",
+                    detail:"wolf"
+                },
+
+                ENTJ: {
+                    animal: "반달가슴곰",
+                    image: "images/mbti_img/ENTJ_반달가슴곰.png",
+                    description:
+                    "반달가슴곰은 넓은 행동권을 가진 대형 포유류로 강한 존재감과 적응력을 보여줍니다. 환경을 주도적으로 개척하고 목표를 향해 움직이는 모습이 통솔력 있는 ENTJ와 닮았습니다.",
+                    reason:
+                    "반달가슴곰은 과거 밀렵과 서식지 파괴로 인해 개체 수가 크게 감소했습니다. 현재 복원 사업이 진행되고 있지만 지속적인 관심이 필요합니다.",
+                    detail:"bear"
+                },
+
+                INFP: {
+                    animal: "사향노루",
+                    image: "images/mbti_img/INFP_사향노루.png",
+                    description:
+                    "사향노루는 깊은 산림 속에서 홀로 생활하며 조용하고 예민한 성향을 보입니다. 자신만의 세계를 소중히 여기고 내면이 풍부한 INFP와 잘 어울립니다.",
+                    reason:
+                    "사향노루는 불법 포획과 서식지 감소로 인해 개체 수가 감소하고 있습니다. 안정적인 산림 환경 보전이 필요합니다.",
+                    detail:"muskdeer"
+                },
+
+                INFJ: {
+                    animal: "하늘다람쥐",
+                    image: "images/mbti_img/INFJ_하늘다람쥐.png",
+                    description:
+                    "하늘다람쥐는 밤에 활동하며 나무 사이를 조용히 활강하는 신비로운 동물입니다. 드러나기보다 내면의 가치를 중요하게 생각하는 INFJ의 모습과 닮아 있습니다.",
+                    reason:
+                    "하늘다람쥐는 산림 훼손과 서식지 단절의 영향을 받고 있습니다. 건강한 숲을 유지하는 것이 보호의 핵심입니다.",
+                    detail:"flysquirrel"
+                },
+
+                INTJ: {
+                    animal: "스라소니",
+                    image: "images/mbti_img/INTJ_스라소니.png",
+                    description:
+                    "스라소니는 넓은 영역을 단독으로 관리하며 전략적으로 사냥하는 포식자입니다. 독립적이고 계획적인 성향이 강한 INTJ와 매우 잘 어울립니다.",
+                    reason:
+                    "스라소니는 서식지 감소와 먹이 부족으로 개체 수가 감소하고 있습니다. 생태계 최상위 포식자로서 중요한 역할을 합니다.",
+
+                    detail:"lynx"
+                },
+
+                ESFP: {
+                    animal: "물범",
+                    image: "images/mbti_img/ESFP_물범.png",
+
+                    description:
+                    "물범은 바다와 해안에서 활발하게 활동하며 사람들의 관심을 끄는 매력적인 동물입니다. 에너지가 넘치고 표현력이 풍부한 ESFP와 닮아 있습니다.",
+
+                    reason:
+                    "물범은 해양 오염과 기후변화로 인해 서식 환경이 위협받고 있습니다. 깨끗한 바다를 유지하기 위한 노력이 필요합니다.",
+
+                    detail:"seal"
+                },
+
+                ISTJ: {
+                    animal: "작은관코박쥐",
+                    image: "images/mbti_img/ISTJ_작은관코박쥐.png",
+
+                    description:
+                    "작은관코박쥐는 눈에 잘 띄지 않지만 자신만의 방식으로 묵묵히 살아가는 동물입니다. 책임감 있고 성실하게 역할을 수행하는 ISTJ와 잘 어울립니다.",
+
+                    reason:
+                    "박쥐류는 서식지 파괴와 인간의 오해로 인해 위협받고 있습니다. 생태계에서 중요한 역할을 하는 만큼 보호가 필요합니다.",
+
+                    detail:"bat"
+                },
+            };
+
+            const params = new URLSearchParams(window.location.search);
+
+            let type = params.get("type");
+
+            if(!type){
+                type = localStorage.getItem("animalType");
+            }
+
+            if(animalData[type]){
+
+                document.getElementById("animalName").innerText =
+                    animalData[type].animal;
+
+                document.getElementById("mbtiType").innerText =
+                    type;
+
+                document.getElementById("animalImage").src =
+                    animalData[type].image;
+
+                document.getElementById("animalDescription").innerText =
+                    animalData[type].description;
+
+                document.getElementById("animalReason").innerText =
+                    animalData[type].reason;
+
+                document.getElementById("detailBtn").href =
+                    "animal-detail.html?animal=" +
+                    animalData[type].detail;
+
+                document.getElementById("bestMatch").innerHTML ="최고의 궁합 : " + animalData[type].best +" (" + animalData[type].bestMbti +")";
+
+                document.getElementById("goodMatch").innerHTML =
+                    "좋은 궁합 : " +
+                    animalData[type].good + " (" +
+                    animalData[type].goodMbti + ")";
+
+                document.getElementById("badMatch").innerHTML =
+                    "최악의 궁합 : " +
+                    animalData[type].bad + " (" +
+                    animalData[type].badMbti + ")";
+            }
+
+            else{
+                document.getElementById("animalName").innerText = "결과를 찾을 수 없습니다.";
+            }
+
+        </script>
+
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.dropotron.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+
+    </body>
+</html>

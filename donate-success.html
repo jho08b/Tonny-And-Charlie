@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <title>SAVE 282 | 후원 완료</title>
+
+<meta charset="utf-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet"
+      href="assets/css/main.css">
+
+
+</head>
+
+<body class="no-sidebar is-preload">
+
+<div id="page-wrapper">
+
+
+<section id="header">
+
+    <nav id="nav">
+        <ul>
+            <li><a href="index.html">SAVE 282</a></li>
+            <li><a href="personality.html">성격유형 검사</a>
+                <ul>
+                    <li><a href="quiz.html">내 성격유형 검사하러가기</a></li>
+                    <li><a href="compatibility.html">동물 궁합표 보러가기</a></li>
+                    <li><a href="type-list.html">전체 성격유형 보러가기</a></li>
+                </ul>
+            </li>
+            <li><a href="animals.html">멸종위기종</a></li>
+            <li class="current">
+                <a href="donate.html">후원하기</a>
+            </li>
+            <li><a href="login.html">Log In</a></li>
+        </ul>
+    </nav>
+
+</section>
+
+<section id="main">
+
+    <div class="container">
+
+        <article class="box post">
+
+            <header style="text-align:center;">
+
+                <h2>
+                    후원이 완료되었습니다!
+                </h2>
+
+                <p id="thanks"></p>
+
+            </header>
+
+            <section>
+
+                <h3>감사합니다.</h3>
+
+                <p>
+                    여러분의 후원은
+                    멸종위기 동물 보호와
+                    생태계 보전에 큰 힘이 됩니다.
+                </p>
+
+                <p>
+                    SAVE 282는 앞으로도
+                    다양한 멸종위기종을 알리고
+                    보호 활동의 중요성을
+                    전달하기 위해 노력하겠습니다.
+                </p>
+
+            </section>
+
+            <div style="text-align:center;">
+
+                <a href="index.html"
+                   class="button">
+
+                    홈으로 돌아가기
+
+                </a>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+</div>
+
+<script>
+
+const donor =
+JSON.parse(
+localStorage.getItem("donor")
+);
+
+if(donor){
+
+document.getElementById("thanks")
+.innerHTML =
+
+`${donor.name}님,<br>
+${Number(donor.amount)
+.toLocaleString()}원 후원 감사합니다.`;
+
+}
+
+</script>
+
+<script src="assets/js/jquery.min.js"></script>
+
+<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

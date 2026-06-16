@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <title>SAVE 282 - 후원 신청</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link rel="stylesheet" href="assets/css/main.css">
+
+
+</head>
+
+<body class="no-sidebar is-preload">
+
+<div id="page-wrapper">
+
+
+<section id="header">
+
+    <nav id="nav">
+        <ul>
+            <li><a href="index.html">SAVE 282</a></li>
+
+            <li>
+                <a href="personality.html">성격유형 검사</a>
+                <ul>
+                    <li><a href="quiz.html">내 성격유형 검사하러가기</a></li>
+                    <li><a href="compatibility.html">동물 궁합표 보러가기</a></li>
+                    <li><a href="type-list.html">전체 성격유형 보러가기</a></li>
+                </ul>
+            </li>
+
+            <li><a href="animals.html">멸종위기종</a></li>
+
+            <li class="current">
+                <a href="donate.html">후원하기</a>
+            </li>
+
+            <li><a href="login.html">Log In</a></li>
+        </ul>
+    </nav>
+
+</section>
+
+<section id="main">
+
+    <div class="container">
+
+        <article class="box post">
+
+            <header style="text-align:center;">
+                <h2>후원 신청</h2>
+                <p>여러분의 관심이 멸종위기 동물을 지킵니다.</p>
+            </header>
+
+            <form id="donateForm">
+
+                <label>이름</label>
+                <input type="text" id="name" required>
+
+                <br><br>
+
+                <label>이메일</label>
+                <input type="email" id="email" required>
+
+                <br><br>
+
+                <label>연락처</label>
+                <input type="tel" id="phone">
+
+                <br><br>
+
+                <label>후원 유형</label>
+
+                <br>
+
+                <input type="radio" name="type" value="일시후원" checked>
+                일시후원
+
+                <input type="radio" name="type" value="정기후원">
+                정기후원
+
+                <br><br>
+
+                <label>후원 금액</label>
+
+                <select id="amount">
+
+                    <option value="10000">
+                        10,000원
+                    </option>
+
+                    <option value="30000">
+                        30,000원
+                    </option>
+
+                    <option value="50000">
+                        50,000원
+                    </option>
+
+                    <option value="100000">
+                        100,000원
+                    </option>
+
+                </select>
+
+                <br><br>
+
+                <label>응원 메시지</label>
+
+                <textarea id="message"></textarea>
+
+                <br><br>
+
+                <div style="text-align:center;">
+
+                    <button type="submit"
+                            class="button large">
+
+                        후원하기
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+</div>
+
+<script>
+
+document.getElementById("donateForm")
+.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const donor = {
+
+        name:
+        document.getElementById("name").value,
+
+        amount:
+        document.getElementById("amount").value
+
+    };
+
+    localStorage.setItem(
+        "donor",
+        JSON.stringify(donor)
+    );
+
+    location.href =
+    "donate-success.html";
+
+});
+
+</script>
+
+<script src="assets/js/jquery.min.js"></script>
+
+<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

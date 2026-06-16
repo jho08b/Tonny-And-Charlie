@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+
+
+<title>동물 궁합 분석</title>
+
+<meta charset="utf-8" />
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no" />
+
+<link rel="stylesheet"
+      href="assets/css/main.css" />
+
+
+</head>
+
+<body class="homepage is-preload">
+
+<div id="page-wrapper">
+
+<!-- Header -->
+<section id="header">
+
+    <nav id="nav">
+            <ul>
+                <li><a href="index.html">SAVE 282</a></li>
+
+                <li class="current">
+                    <a href="personality.html">멸종위기종 성격 유형</a>
+                    <ul>
+                        <li><a href="quiz.html">내 성격유형 검사하러가기</a></li>
+                        <li><a href="compatibility.html">동물 궁합표 보러가기</a></li>
+                        <li><a href="type-list.html">전체 성격유형 보러가기</a></li>
+                    </ul>
+                </li>
+                <li><a href="animals.html">멸종위기종</a></li>
+                <li><a href="donate.html">후원하기</a></li>
+                <li><a href="login.html">Log In</a></li>
+            </ul>
+        </nav>
+
+</section>
+
+<!-- Main -->
+<section id="main">
+
+    <div class="container">
+
+        <article class="box post">
+
+            <header style="text-align:center;">
+
+                <h2 id="title">
+                    궁합 분석
+                </h2>
+
+                <p id="subtitle">
+                    MBTI 기반 멸종위기종 궁합
+                </p>
+
+            </header>
+
+            <div style="text-align:center;">
+
+                <img id="animalImage"
+                     src=""
+                     alt=""
+                     style="
+                     max-width:300px;
+                     width:100%;
+                     border-radius:15px;
+                     ">
+
+            </div>
+
+            <hr>
+
+            <section>
+
+                <h3>
+                    💖 최고의 궁합
+                </h3>
+
+                <p id="bestMatch">
+                    불러오는 중...
+                </p>
+
+            </section>
+
+            <section>
+
+                <h3>
+                    😊 좋은 궁합
+                </h3>
+
+                <p id="goodMatch">
+                    불러오는 중...
+                </p>
+
+            </section>
+
+            <section>
+
+                <h3>
+                    ⚡ 최악의 궁합
+                </h3>
+
+                <p id="badMatch">
+                    불러오는 중...
+                </p>
+
+            </section>
+
+            <footer
+                style="
+                text-align:center;
+                margin-top:40px;
+                ">
+
+                <a href="compatibility.html"
+                   class="button">
+
+                    궁합표로 돌아가기
+
+                </a>
+
+            </footer>
+
+        </article>
+
+    </div>
+
+</section>
+```
+
+</div>
+
+<script>
+
+const compatibilityData = {
+
+    ENFP: {
+
+        animal:"수달",
+
+        image:"images/mbti_img/ENFP_수달.png",
+
+        best:
+        "💖 INTJ 스라소니\n\n전략적인 스라소니는 자유로운 수달의 아이디어를 현실적으로 정리해 줄 수 있습니다. 서로 부족한 부분을 보완하는 최고의 궁합입니다.",
+
+        good:
+        "😊 ENTJ 반달가슴곰\n\n반달가슴곰의 추진력과 수달의 창의성이 만나 좋은 시너지를 만들어냅니다.",
+
+        bad:
+        "⚡ ESTP 담비\n\n둘 다 활동적이고 즉흥적인 성향이 강해 주도권 경쟁이 발생할 수 있습니다."
+
+    }
+
+};
+
+const params =
+new URLSearchParams(window.location.search);
+
+const type =
+params.get("type");
+
+if(compatibilityData[type]){
+
+    document.getElementById("title").innerText =
+    type + " · " +
+    compatibilityData[type].animal;
+
+    document.getElementById("animalImage").src =
+    compatibilityData[type].image;
+
+    document.getElementById("bestMatch").innerText =
+    compatibilityData[type].best;
+
+    document.getElementById("goodMatch").innerText =
+    compatibilityData[type].good;
+
+    document.getElementById("badMatch").innerText =
+    compatibilityData[type].bad;
+
+}
+
+else{
+
+    document.getElementById("title").innerText =
+    "준비중인 궁합입니다.";
+
+}
+
+</script>
+
+<script src="assets/js/jquery.min.js"></script>
+
+<script src="assets/js/jquery.dropotron.min.js"></script>
+
+<script src="assets/js/browser.min.js"></script>
+
+<script src="assets/js/breakpoints.min.js"></script>
+
+<script src="assets/js/util.js"></script>
+
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>SAVE 282 | 동물 상세정보</title>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body class="no-sidebar is-preload">
+
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <section id="header">
+
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html">SAVE 282</a></li>
+
+                <li>
+                    <a href="personality.html">멸종위기종 성격 유형</a>
+                    <ul>
+                        <li><a href="quiz.html">내 성격유형 검사하러가기</a></li>
+                        <li><a href="compatibility.html">동물 궁합표 보러가기</a></li>
+                        <li><a href="type-list.html">전체 성격유형 보러가기</a></li>
+                    </ul>
+                </li>
+                <li class="current"><a href="animals.html">멸종위기종</a></li>
+                <li><a href="donate.html">후원하기</a></li>
+                <li><a href="login.html">Log In</a></li>
+            </ul>
+        </nav>
+
+    </section>
+
+    <!-- Main -->
+    <section id="main">
+        <div class="container">
+
+            <article class="box post">
+
+                <header style="text-align:center;">
+                    <h2 id="animalName">
+                        동물 정보
+                    </h2>
+
+                    <p id="scientificName"></p>
+
+                    <p id="status"></p>
+                </header>
+
+                <span class="image featured">
+                    <img id="animalImage" src="" alt="">
+                </span>
+
+                <section id="banner">
+                    <header>
+                        <h3>분류</h3>
+                        <p id="classification"></p>
+                        <br>
+                        <h3>특징</h3>
+                        <p id="feature"></p>
+                    </header>
+                    <img id="map" src="" alt="" width="300">
+                    <h3>서식지</h3>
+                    <p id="habitat"></p>
+                    <header>
+                        <img id="dangericon" src="" alt="" width="200">
+                        <h3>멸종위기 원인</h3>
+                        <p id="danger"></p>
+                        <br>
+                        <h3>보호 방법</h3>
+                    <p id="protect"></p>
+                    </header>
+                    <h3>여담</h3>
+                    <p id="funfact"></p>
+                </section>
+
+                <footer style="text-align:center;">
+
+                    <a href="animals.html" class="button">
+                        다른 동물 보기
+                    </a>
+
+                    <a href="donate.html" class="button alt">
+                        후원하기
+                    </a>
+
+                </footer>
+
+            </article>
+
+        </div>
+    </section>
+
+</div>
+
+<script>
+
+const animalInfo = {
+
+    otter: {
+
+        name:"수달",
+
+        scientific:
+        "Lutra lutra",
+
+        status:
+        "멸종위기 야생생물 Ⅰ급, 천연기념물 제330호",
+
+        image:
+        "images/멸종위기종_img/포유류/수달_얼굴.jpg",
+
+        classification:
+        "Animalia > Chordata (척삭동물문) > Mammalia (포유동물강) > Carnivora (식육목) > Mustelidae (족제비과) > Lutra (수달속) > lutra (수달)",
+
+        habitat:
+        "갈대와 수변 식생이 풍부하고 먹이가 많은 하천, 강, 호수 주변에 서식한다. 보금자리는 주로 물가의 바위틈이나 나무뿌리 아래의 빈 공간을 이용한다. 국내에서는 전국적으로 넓게 분포하지만, 한 하천 수계 내에서 일정한 세력권을 형성하며 생활하기 때문에 개체 수는 많지 않다.",
+
+        map:
+        "images/map/otter_map.png",
+
+        feature:
+        "몸 전체는 암갈색 털로 덮여 있으며 배 부분은 비교적 옅은 갈색을 띤다. 턱 아래는 흰색이고, 납작하고 둥근 머리와 예민한 수염을 가지고 있다. 수중 생활에 적응하여 네 다리가 짧고 발가락 사이에 물갈퀴가 발달해 뛰어난 수영 실력을 보인다.",
+
+        dangericon:
+        "images/서식지파괴.png",
+
+        danger:
+        "하천 개발, 수질 오염, 서식지 파괴로 인해 개체 수가 감소하고 있다. 특히 깨끗한 물 환경이 사라지면서 안정적인 서식 공간을 찾기 어려워지고 있다.",
+
+        protect:
+        "하천 생태계 복원과 수질 개선, 서식지 보전이 필요하다. 또한 야생동물 보호 정책과 지속적인 모니터링을 통해 안정적인 개체군을 유지해야 한다.",
+
+        funfact:
+        "수달은 예로부터 강의 정령으로 여겨질 만큼 신비로운 동물로 알려져 있다. 뛰어난 사냥 실력을 갖추고 있으며 깨끗한 물에서만 살아가기 때문에 환경 건강도를 나타내는 대표적인 생물로 평가된다. 수달이 서식하는 강은 생태계가 건강하다는 의미를 가진다."
+    },
+
+    crane: {
+
+        name:"두루미",
+
+        scientific:
+        "Grus japonensis",
+
+        image:
+        "images/animals/crane.jpg",
+
+        habitat:
+        "습지와 논 주변에 서식합니다.",
+
+        feature:
+        "긴 다리와 우아한 날개를 가진 대형 조류입니다.",
+
+        danger:
+        "습지 감소와 인간 활동의 영향으로 위협받고 있습니다.",
+
+        protect:
+        "습지 보전 및 보호구역 확대가 필요합니다."
+    },
+
+    lynx: {
+
+        name:"삵",
+
+        scientific:
+        "Prionailurus bengalensis",
+
+        image:
+        "images/animals/lynx.jpg",
+
+        habitat:
+        "산림과 농경지 주변",
+
+        feature:
+        "야행성이며 뛰어난 사냥 능력을 가지고 있습니다.",
+
+        danger:
+        "로드킬과 서식지 단절",
+
+        protect:
+        "생태통로 확충과 보호구역 관리"
+    },
+
+    wolf: {
+
+        name:"늑대",
+
+        scientific:
+        "Canis lupus",
+
+        image:
+        "images/animals/wolf.jpg",
+
+        habitat:
+        "산림 지역",
+
+        feature:
+        "무리 생활을 하는 대표적인 육식동물",
+
+        danger:
+        "서식지 감소와 인간과의 갈등",
+
+        protect:
+        "서식지 복원과 보호 정책 강화"
+    },
+
+    fox: {
+
+        name:"여우",
+
+        scientific:
+        "Vulpes vulpes",
+
+        image:
+        "images/animals/fox.jpg",
+
+        habitat:
+        "산림과 초원",
+
+        feature:
+        "높은 적응력과 뛰어난 청각",
+
+        danger:
+        "서식지 감소",
+
+        protect:
+        "자연 생태계 보존"
+    },
+
+    leopard: {
+
+        name:"표범",
+
+        scientific:
+        "Panthera pardus",
+
+        image:
+        "images/animals/leopard.jpg",
+
+        habitat:
+        "산림 지역",
+
+        feature:
+        "강력한 사냥 능력",
+
+        danger:
+        "밀렵과 서식지 감소",
+
+        protect:
+        "밀렵 방지와 보호구역 확대"
+    },
+
+    seal: {
+
+        name:"물범",
+
+        scientific:
+        "Phoca largha",
+
+        image:
+        "images/animals/seal.jpg",
+
+        habitat:
+        "연안 해역",
+
+        feature:
+        "수영 능력이 뛰어난 해양 포유류",
+
+        danger:
+        "해양오염과 기후변화",
+
+        protect:
+        "해양 보호구역 확대"
+    },
+
+    goat: {
+
+        name:"산양",
+
+        scientific:
+        "Naemorhedus caudatus",
+
+        image:
+        "images/animals/goat.jpg",
+
+        habitat:
+        "험준한 산악지대",
+
+        feature:
+        "절벽을 오르는 능력이 뛰어남",
+
+        danger:
+        "기후변화와 서식지 파괴",
+
+        protect:
+        "산림 생태계 보전"
+    }
+
+};
+
+const params =
+new URLSearchParams(window.location.search);
+
+const animal =
+params.get("animal");
+
+if(animalInfo[animal]){
+
+    document.getElementById("animalName").innerText = animalInfo[animal].name;
+
+    document.getElementById("scientificName").innerText = animalInfo[animal].scientific;
+
+    document.getElementById("status").innerText = animalInfo[animal].status;
+
+    document.getElementById("animalImage").src = animalInfo[animal].image;
+
+    document.getElementById("classification").innerText = animalInfo[animal].classification;
+
+    document.getElementById("map").src = animalInfo[animal].map;
+
+    document.getElementById("habitat").innerText = animalInfo[animal].habitat;
+
+    document.getElementById("feature").innerText = animalInfo[animal].feature;
+
+    document.getElementById("dangericon").src = animalInfo[animal].dangericon;
+    
+    document.getElementById("danger").innerText = animalInfo[animal].danger;
+
+    document.getElementById("protect").innerText = animalInfo[animal].protect;
+    
+    document.getElementById("funfact").innerText = animalInfo[animal].funfact;
+}
+
+</script>
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.dropotron.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>

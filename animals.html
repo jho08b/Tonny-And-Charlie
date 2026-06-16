@@ -1,0 +1,255 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>SAVE 282 | 멸종위기종</title>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+
+<body class="left-sidebar is-preload">
+
+
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <section id="header">
+
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html">SAVE 282</a> </li>
+                <li><a href="personality.html"> 멸종위기종 성격 유형 </a> 
+                    <ul>
+                        <li><a href="quiz.html">내 성격유형 검사하러가기</a></li>
+                        <li><a href="compatibility.html">동물 궁합표 보러가기</a></li>
+                        <li><a href="type-list.html">전체 성격유형 보러가기</a></li>
+                    </ul>
+                </li>
+                <li class="current"><a href="animals.html"> 멸종위기종 </a> </li>
+                <li><a href="donate.html"> 후원하기 </a> </li>
+                <li><a href="login.html">Log In</a></li>
+            </ul>
+        </nav>
+
+    </section>
+
+    <!-- Main -->
+    <section id="main">
+
+        <div class="container">
+
+            <header style="text-align:center;">
+                <h2>멸종위기종 알아보기</h2>
+                <p>우리가 보호해야 할 소중한 동물들을 소개합니다.</p>
+            </header>
+
+            <div class="category-menu" style="text-align:center;">
+
+                <div class="category-item" onclick="filterAnimals('all')">
+                    <img src="images/멸종위기종.png" alt="전체" width="100">
+                    <p>전체</p>
+                </div>
+
+                <div class="category-item" onclick="filterAnimals('mammal')">
+
+                    <img src="images/카테고리/포유류.png" alt="포유류" width="100">
+
+                    <p>포유류</p>
+
+                </div>
+
+                <div class="category-item" onclick="filterAnimals('bird')">
+
+                    <img src="images/카테고리/조류.png" alt="조류" width="100">
+
+                    <p>조류</p>
+
+                </div>
+
+                <div class="category-item" onclick="filterAnimals('fish')">
+
+                    <img src="images/카테고리/어류.png" alt="어류" width="100">
+
+                    <p>어류</p>
+
+                </div>
+
+            </div>
+
+            <br>
+
+
+            <div class="row">
+
+                <!-- 수달 -->
+                <div class="col-4 col-6-medium col-12-small animal-card mammal">
+                    <section class="box">
+
+                        <a href="animal-detail.html?animal=otter" class="image featured">
+                            <img src="images/멸종위기종_img/포유류/수달_전신.jpg" alt="수달">
+                        </a>
+
+                        <header>
+                            <h3>수달</h3>
+                        </header>
+
+                        <p>깨끗한 하천에서 살아가는 대표적인 멸종위기 포유류입니다.</p>
+
+                        <footer>
+                            <a href="animal-detail.html?animal=otter" class="button alt">자세히 보기</a>
+                        </footer>
+
+                    </section>
+                </div>
+
+                <!-- 두루미 -->
+                <div class="col-4 col-6-medium col-12-small animal-card bird">
+                    <section class="box">
+
+                        <a href="animal-detail.html?animal=crane" class="image featured">
+                            <img src="images/animals/crane.jpg" alt="두루미">
+                        </a>
+
+                        <header>
+                            <h3>두루미</h3>
+                        </header>
+
+                        <p>우아한 모습으로 유명한 국제적 보호종입니다.</p>
+
+                        <footer>
+                            <a href="animal-detail.html?animal=crane" class="button alt">자세히 보기</a>
+                        </footer>
+
+                    </section>
+                </div>
+
+                <!-- 삵 -->
+                <div class="col-4 col-6-medium col-12-small animal-card mammal">
+                    <section class="box">
+
+                        <a href="animal-detail.html?animal=lynx" class="image featured">
+                            <img src="images/animals/lynx.jpg" alt="삵">
+                        </a>
+
+                        <header>
+                            <h3>삵</h3>
+                        </header>
+
+                        <p>우리나라에 서식하는 야생 고양잇과 동물입니다.</p>
+
+                        <footer>
+                            <a href="animal-detail.html?animal=lynx" class="button alt">자세히 보기</a>
+                        </footer>
+
+                    </section>
+                </div>
+
+                <!-- 여우 -->
+                <div class="col-4 col-6-medium col-12-small animal-card mammal">
+                    <section class="box">
+
+                        <a href="animal-detail.html?animal=fox" class="image featured">
+                            <img src="images/animals/fox.jpg" alt="여우">
+                        </a>
+
+                        <header>
+                            <h3>여우</h3>
+                        </header>
+
+                        <p>뛰어난 적응력과 영리함을 가진 동물입니다.</p>
+
+                        <footer>
+                            <a href="animal-detail.html?animal=fox" class="button alt">자세히 보기</a>
+                        </footer>
+
+                    </section>
+                </div>
+
+                <!-- 표범 -->
+                <div class="col-4 col-6-medium col-12-small animal-card mammal">
+                    <section class="box">
+
+                        <a href="animal-detail.html?animal=leopard" class="image featured">
+                            <img src="images/animals/leopard.jpg" alt="표범">
+                        </a>
+
+                        <header>
+                            <h3>표범</h3>
+                        </header>
+
+                        <p>강력한 사냥 능력을 가진 대형 포식자입니다.</p>
+
+                        <footer>
+                            <a href="animal-detail.html?animal=leopard" class="button alt">자세히 보기</a>
+                        </footer>
+
+                    </section>
+                </div>
+
+                <!-- 늑대 -->
+                <div class="col-4 col-6-medium col-12-small animal-card mammal">
+                    <section class="box">
+
+                        <a href="animal-detail.html?animal=wolf" class="image featured">
+                            <img src="images/animals/wolf.jpg" alt="늑대">
+                        </a>
+
+                        <header>
+                            <h3>늑대</h3>
+                        </header>
+
+                        <p>무리 생활을 하는 대표적인 육식동물입니다.</p>
+
+                        <footer>
+                            <a href="animal-detail.html?animal=wolf" class="button alt">자세히 보기</a>
+                        </footer>
+
+                    </section>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+<script>
+
+function filterAnimals(category){
+
+    const cards =
+    document.querySelectorAll(".animal-card");
+
+    cards.forEach(card => {
+
+        if(
+            category === "all" ||
+            card.classList.contains(category)
+        ){
+            card.style.display = "block";
+        }
+        else{
+            card.style.display = "none";
+        }
+
+    });
+
+}
+
+</script>
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.dropotron.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+
+</body>
+</html>
