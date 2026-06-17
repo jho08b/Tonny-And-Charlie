@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+
+    <title>SAVE 282 | 게임 결과</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+
+</head>
+
+<body class="homepage is-preload">
+
+    <div id="page-wrapper">
+
+        <section id="header">
+
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html">SAVE 282</a></li>
+
+                    <li>
+                        <a href="personality.html">멸종위기종 성격 유형</a>
+                        <ul>
+                            <li><a href="quiz.html">내 성격유형 검사하러가기</a></li>
+                            <li><a href="compatibility.html">동물 궁합표 보러가기</a></li>
+                            <li><a href="type-list.html">전체 성격유형 보러가기</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="animals.html">멸종위기종</a></li>
+                    <li><a href="donate.html">후원하기</a></li>
+                    <li><a href="login.html">Log In</a></li>
+                </ul>
+            </nav>
+
+        </section>
+
+<section id="main">
+    <div class="container">
+
+        <div id="donatePopup" class="popup">
+            <div class="popup-content">
+                <h3>🐾 게임 후원</h3>
+                <p>지금까지 게임으로 적립된 12,351원을<br>
+                멸종위기종 보호 기금으로 후원하시겠습니까?</p>
+
+                <button onclick="completeDonate()">
+                    후원하기
+                </button>
+
+                <button onclick="closeDonatePopup()"> 취소 </button>
+            </div>
+        </div>
+
+        <article class="box post" style="text-align:center;">
+
+            <header >
+                <h2>🎉 게임 성공!</h2>
+                <br>
+                <br>
+            </header>
+
+            <span class="image featured">
+                <img src="images/game/game_result.jpg" alt="">
+            </span>
+
+            <h3>🐾멸종위기종 보호 후원 +1원</h3>
+            <br>
+            <br>
+
+            <p>
+                카드의 짝을 모두 찾아
+                멸종위기 동물 보호에 성공했습니다.
+            </p>
+
+            <p>
+                SAVE 282는 게임을 통해
+                멸종위기종 보호의 중요성을 알리고 있습니다.
+            </p>
+            <br>
+
+            <hr>
+
+            <h3>현재 누적 후원금</h3>
+            
+            <br>
+            <h2 style="color:green;">
+                12,351원
+            </h2>
+            <br>
+            <br>
+
+            <div style="text-align:center;">
+
+                <a href="game.html" class="button alt">
+                    다시 플레이
+                </a>
+
+                <a href="#" class="button" onclick="openDonatePopup()">
+                    후원하기
+                </a>
+
+            </div>
+
+        </article>
+
+    </div>
+</section>
+</div>
+<script>
+
+function openDonatePopup(){
+    document.getElementById("donatePopup").style.display="block";
+}
+
+function closeDonatePopup(){
+    document.getElementById("donatePopup").style.display="none";
+}
+
+function completeDonate(){
+
+    alert("🎉 12,351원 후원이 완료되었습니다!");
+
+    document.getElementById("donatePopup").style.display="none";
+}
+
+</script>
+
+</body>
+</html>
