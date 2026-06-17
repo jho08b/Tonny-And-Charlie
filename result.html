@@ -95,24 +95,22 @@
 
                     </section>
 
-                    <section>
+                    <section style="text-align:center;">
     
                         <h3>동물 궁합</h3>
-
-                        <p id="bestMatch"></p>
-    
-                        <p id="goodMatch"></p>
-    
-                        <p id="badMatch"></p>
+                        <div id="compatibilityBox" class="compat-grid"></div>
 
                     </section>
 
                     <footer style="text-align:center; margin-top:40px;">
 
                         <a id="detailBtn"  href="#" class="button">
-                            동물 상세정보 보기
+                            성격유형 보기
                         </a>
 
+                        <a  id="compatBtn" href="#" class="button">
+                            궁합상세보기
+                        </a>
                         <a href="quiz.html" class="button alt">
                             다시 검사하기
                         </a>
@@ -129,7 +127,45 @@
         </section>
 
     </div>
+        <!-- ================= CSS ================= -->
+<style>
+.compat-grid{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
 
+.compat-card{
+    width:160px;
+    background:#fff;
+    border-radius:15px;
+    padding:12px;
+    text-align:center;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.compat-card:hover{
+    transform:translateY(-5px);
+}
+
+.compat-card img{
+    width:100%;
+    height:120px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.compat-label{
+    margin-top:8px;
+    font-weight:bold;
+}
+</style>
+
+<!-- ================= JS ================= -->
         <script>
 
             const animalData = {
@@ -236,13 +272,21 @@
 
             const params = new URLSearchParams(window.location.search);
 
-            let type = params.get("type");
+            let detail = "otter";
+            let type = "ENFP";
 
-            if(!type){
+            /*if(!type){
                 type = localStorage.getItem("animalType");
             }
 
+            if(!type || !animalData[type]){
+                type = "ENFP";
+                detail = "otter"
+            }*/
+
             if(animalData[type]){
+
+                 const data = animalData[type];
 
                 document.getElementById("animalName").innerText =
                     animalData[type].animal;
@@ -260,22 +304,43 @@
                     animalData[type].reason;
 
                 document.getElementById("detailBtn").href =
-                    "animal-detail.html?animal=" +
-                    animalData[type].detail;
+                    "personality-detail.html?animal=" +
+                    detail;
 
-                document.getElementById("bestMatch").innerHTML ="최고의 궁합 : " + animalData[type].best +" (" + animalData[type].bestMbti +")";
+                 document.getElementById("compatBtn").href =
+                    "compatibility-detail.html?type=" + type;
 
-                document.getElementById("goodMatch").innerHTML =
-                    "좋은 궁합 : " +
-                    animalData[type].good + " (" +
-                    animalData[type].goodMbti + ")";
+                 // ================= 궁합 카드 =================
+                const compatBox = document.getElementById("compatibilityBox");
 
-                document.getElementById("badMatch").innerHTML =
-                    "최악의 궁합 : " +
-                    animalData[type].bad + " (" +
-                    animalData[type].badMbti + ")";
+                const compatList = [
+                        data.best ? {label:"최고 궁합", name:data.best, mbti:data.bestMbti} : null,
+                        data.good ? {label:"좋은 궁합", name:data.good, mbti:data.goodMbti} : null,
+                        data.bad ? {label:"주의 궁합", name:data.bad, mbti:data.badMbti} : null
+                ].filter(Boolean);
+
+                compatList.forEach(item => {
+
+                const card = document.createElement("div");
+                card.className = "compat-card";
+
+                const imgSrc = "images/mbti_img/" +item.mbti + "_" + item.name + ".png";
+
+                card.innerHTML = `
+                    <img src="${imgSrc}" onerror="this.src='images/default.jpg'">
+                    <div class="compat-label">${item.label}</div>
+                    <div>${item.name}</div>
+                    <div style="font-size:12px;color:gray">${item.mbti}</div>
+                `;
+
+                card.onclick = () => {
+                    window.location.href =
+                        "personality-detail.html?animal=otter" /*+ type + "&target=" + item.mbti*/;
+                    };
+
+                compatBox.appendChild(card);
+                });
             }
-
             else{
                 document.getElementById("animalName").innerText = "결과를 찾을 수 없습니다.";
             }
@@ -291,3 +356,5 @@
 
     </body>
 </html>
+
+
