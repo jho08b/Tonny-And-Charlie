@@ -77,6 +77,20 @@
                         <img id="map" src="" alt="" width="300">
                         <h3>서식지</h3>
                         <p id="habitat"></p>
+                        
+                        <p>수달 울음소리 | 영상</p>
+                        <div class="media-row">
+                            <audio id="habitatAudio" controls>
+                                <source src="images/수달울음소리.mp3" type="audio/mpeg">
+                                    브라우저가 오디오를 지원하지 않습니다.
+                            </audio>
+    
+                            <video id="habitatVideo" controls>
+                            <source src="images/국립생물자원관_수달.mp4" type="video/mp4">
+                                브라우저가 영상을 지원하지 않습니다.
+                            </video>
+                        </div>
+                        <br>
                         <header>
                             <img id="dangericon" src="" alt="" width="200">
                             <h3>멸종위기 원인</h3>
@@ -147,7 +161,11 @@ const animalInfo = {
         "하천 생태계 복원과 수질 개선, 서식지 보전이 필요하다. 또한 야생동물 보호 정책과 지속적인 모니터링을 통해 안정적인 개체군을 유지해야 한다.",
 
         funfact:
-        "수달은 예로부터 강의 정령으로 여겨질 만큼 신비로운 동물로 알려져 있다. 뛰어난 사냥 실력을 갖추고 있으며 깨끗한 물에서만 살아가기 때문에 환경 건강도를 나타내는 대표적인 생물로 평가된다. 수달이 서식하는 강은 생태계가 건강하다는 의미를 가진다."
+        "수달은 예로부터 강의 정령으로 여겨질 만큼 신비로운 동물로 알려져 있다. 뛰어난 사냥 실력을 갖추고 있으며 깨끗한 물에서만 살아가기 때문에 환경 건강도를 나타내는 대표적인 생물로 평가된다. 수달이 서식하는 강은 생태계가 건강하다는 의미를 가진다.",
+
+        habitatImage: "images/habitat/otter.jpg",
+        habitatVideo: "videos/otter.mp4"
+
     },
 
     crane: {
@@ -344,6 +362,9 @@ if(animalInfo[animal]){
     document.getElementById("protect").innerText = animalInfo[animal].protect;
     
     document.getElementById("funfact").innerText = animalInfo[animal].funfact;
+
+    document.getElementById("habitatImage").src = animalInfo[animal].habitatImage;
+document.getElementById("habitatVideo").src = animalInfo[animal].habitatVideo;
 }
 
 </script>

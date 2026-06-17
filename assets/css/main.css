@@ -2250,6 +2250,32 @@ select{
 				border-bottom-color: rgba(34, 30, 31, 0.98);
 			}
 
+	.media-row {
+    display: flex;
+    gap: 20px;
+    align-items: stretch;
+    margin: 20px 0;
+}
+
+.media-row img,
+.media-row video {
+    width: 50%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+    .media-row {
+        flex-direction: column;
+    }
+
+    .media-row img,
+    .media-row video {
+        width: 100%;
+    }
+}
+
 /* Banner */
 	#startBanner {
 		background:
