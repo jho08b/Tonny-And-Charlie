@@ -1604,6 +1604,14 @@ input, select, textarea {
 			margin-bottom: 0;
 		}
 
+		#about {
+			scroll-margin-top:130px
+		}
+
+		#endanger {
+			scroll-margin-top:130px
+		}
+
 /* Button */
 
 	input[type="button"],
@@ -2189,12 +2197,22 @@ input, select, textarea {
 
 /* Banner */
 	#startBanner {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: 0;
+		background:
+				linear-gradient(
+				rgba(0,0,0,0.5),
+				rgba(0,0,0,0.5)
+			),
+			url("../images/forestBackground.jpg");
+
+		background-size:cover;
+		background-position:center;
+
+    	height: 100vh;
+    	display: flex;
+    	justify-content: center;
+   		align-items: center;
+    	text-align: center;
+   		 margin: 0;
 	}
 
 		#startBanner header {
